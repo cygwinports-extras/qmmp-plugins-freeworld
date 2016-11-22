@@ -2,7 +2,7 @@ inherit qt4-cmake
 
 NAME="qmmp-plugins-freeworld"
 VERSION=0.10.5
-RELEASE=1
+RELEASE=2
 CATEGORY="Audio"
 SUMMARY="Non-distributable plugins for QMMP"
 DESCRIPTION="The Qt Multimedia Player is a audio player with a user interface
@@ -31,6 +31,7 @@ CYGCMAKE_ARGS="
 	-DUSE_GME:BOOL=FALSE
 	-DUSE_OPUS:BOOL=FALSE
 	-DUSE_SID:BOOL=FALSE
+	-DUSE_MAD:BOOL=FALSE
 
 	-DUSE_ALSA:BOOL=FALSE
 	-DUSE_JACK:BOOL=FALSE
@@ -75,7 +76,7 @@ CYGCMAKE_ARGS="
 src_compile() {
 	cd ${B}
 	cygcmake # CYGCMAKE_ARGS above
-	for d in Engines/mplayer Input/aac Input/ffmpeg Input/mad Transports/mms
+	for d in Engines/mplayer Input/aac Input/ffmpeg Transports/mms
 	do
 		cygmake -C src/plugins/$d
 	done
@@ -83,7 +84,7 @@ src_compile() {
 
 src_install() {
 	cd ${B}
-	for d in Engines/mplayer Input/aac Input/ffmpeg Input/mad Transports/mms
+	for d in Engines/mplayer Input/aac Input/ffmpeg Transports/mms
 	do
 		cyginstall -C src/plugins/$d
 	done
