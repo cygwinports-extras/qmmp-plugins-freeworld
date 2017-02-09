@@ -1,8 +1,8 @@
-inherit qt4-cmake
+inherit cmake qt5
 
 NAME="qmmp-plugins-freeworld"
-VERSION=0.10.5
-RELEASE=2
+VERSION=1.1.7
+RELEASE=1
 CATEGORY="Audio"
 SUMMARY="Non-distributable plugins for QMMP"
 DESCRIPTION="The Qt Multimedia Player is a audio player with a user interface
